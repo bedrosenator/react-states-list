@@ -10,10 +10,6 @@ class LocationItem extends Component {
     }
   }
   
-  handleSelection (zipCode) {
-    this.props.dispatch(setZipCode(zipCode) );
-  };
-  
   render() {
     const { location, isItemSelected } = this.props;
     

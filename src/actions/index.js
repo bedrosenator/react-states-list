@@ -1,4 +1,4 @@
-import { SET_ZIP_CODE, FETCH_LOCATION_ERROR, FETCH_LOCATION_LOADING, FETCH_LOCATION_SUCCESS } from '../constants'
+import { SET_ZIP_CODE, FETCH_LOCATION_ERROR, FETCH_LOCATION_LOADING, FETCH_LOCATION_SUCCESS, SET_SELECTION } from '../constants'
 
 export function setZipCode(zipCode) {
   return { type: SET_ZIP_CODE, payload: zipCode };
@@ -6,6 +6,10 @@ export function setZipCode(zipCode) {
 
 export function fetchLocationSuccess(location) {
   return { type: FETCH_LOCATION_SUCCESS, payload: location }
+}
+
+export function setSelection(selection) {
+  return { type: SET_SELECTION, payload: selection }
 }
 
 export function fetchLocationLoading() {

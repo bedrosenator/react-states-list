@@ -4,7 +4,7 @@ import { fetchLocation } from './actions/index';
 import LocationsList from "./LocationsList";
 import { setZipCode } from './actions';
 
-class CityForm extends Component {
+class LocationsForm extends Component {
 
   handleRequest(id) {
     this.props.dispatch(fetchLocation(id));
@@ -15,16 +15,16 @@ class CityForm extends Component {
   }
   
   render() {
-    const { loading, zipCode } = this.props.place;
+    const { loading, zipCode, error } = this.props.place;
 
     return (
       <div>
-       example valid zipcodes * 93455, 93454, 90415, 12345, 91325, 90210<br/>
+        <div>example valid zipcodes * 93455, 93454, 90415, 12345, 91325, 90210</div>
         
         <input value={zipCode} onChange={this.setZipCode.bind(this)} />
-        <button onClick={this.handleRequest.bind(this, zipCode)}>go</button>
+        {loading ? <span>Loading...</span> : <button onClick={this.handleRequest.bind(this, zipCode)}>go</button>}
         
-        {loading ? <div>Loading...</div> : ''}
+        <div>{error}</div>
         
         <LocationsList />
         
@@ -39,4 +39,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(CityForm);
+export default connect(mapStateToProps)(LocationsForm);

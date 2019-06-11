@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LocationItem from './LocationItem';
-import { setZipCode } from './actions';
+import { setZipCode, setSelection } from './actions';
 
 class LocationsList extends Component {
 
   handleSelection (zipCode) {
-    this.props.dispatch(setZipCode(zipCode));
+    this.props.dispatch(setSelection(zipCode));
   };
 
   render() {
@@ -17,7 +17,7 @@ class LocationsList extends Component {
         accumulator.push(
           <LocationItem
             location={locationItem}
-            isItemSelected={this.props.place.zipCode === locationItem['post code'] }
+            isItemSelected={this.props.place.selection === locationItem['post code'] }
             key={locationItem['post code']}
             handleSelection={ this.handleSelection.bind(this, locationItem['post code']) }
           />
