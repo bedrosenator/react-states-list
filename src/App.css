@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+
+.selected_item {
+  outline: 1px solid #61dafb;
+}
