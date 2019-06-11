@@ -1,13 +1,19 @@
+import { SET_ZIP_CODE, FETCH_LOCATION_ERROR, FETCH_LOCATION_LOADING, FETCH_LOCATION_SUCCESS } from '../constants'
+
+export function setZipCode(zipCode) {
+  return { type: SET_ZIP_CODE, payload: zipCode };
+}
+
 export function fetchLocationSuccess(location) {
-  return { type: "FETCH_LOCATION_SUCCESS", payload: location }
+  return { type: FETCH_LOCATION_SUCCESS, payload: location }
 }
 
 export function fetchLocationLoading() {
-  return { type: "FETCH_LOCATION_LOADING" }
+  return { type: FETCH_LOCATION_LOADING }
 }
 
 export function fetchLocationError(error) {
-  return { type: "FETCH_LOCATION_ERROR", payload: { error } }
+  return { type: FETCH_LOCATION_ERROR, payload: { error } }
 }
 
 export const fetchLocation = (id) => (dispatch) => {

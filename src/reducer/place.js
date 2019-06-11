@@ -1,3 +1,5 @@
+import { SET_ZIP_CODE, FETCH_LOCATION_ERROR, FETCH_LOCATION_LOADING, FETCH_LOCATION_SUCCESS } from '../constants'
+
 const initialState = {
   locations: [],
   loading: false,
@@ -7,7 +9,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_ZIP_CODE':
+    case SET_ZIP_CODE:
       return {
         ...state,
         loading: false,
@@ -15,13 +17,13 @@ export default (state = initialState, action) => {
         zipCode: state.zipCode && state.zipCode === action.payload ? '' : action.payload,
       };
     
-    case 'FETCH_LOCATION_LOADING':
+    case FETCH_LOCATION_LOADING:
       return {
         ...state,
         loading: true,
         error: null
       };
-    case 'FETCH_LOCATION_SUCCESS':
+    case FETCH_LOCATION_SUCCESS:
       const isLocationExists = state.locations.find(location => location['post code'] === action.payload['post code']);
       let locations;
       
@@ -36,7 +38,7 @@ export default (state = initialState, action) => {
         zipCode: ''
       };
   
-    case 'FETCH_LOCATION_ERROR':
+    case FETCH_LOCATION_ERROR:
       return {
         ...state,
         loading: false,

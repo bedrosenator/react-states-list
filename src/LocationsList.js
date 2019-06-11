@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LocationItem from './LocationItem';
+import { setZipCode } from './actions';
 
 class LocationsList extends Component {
 
   handleSelection (zipCode) {
-    this.props.dispatch({ type: 'SET_ZIP_CODE', payload: zipCode });
+    this.props.dispatch(setZipCode(zipCode));
   };
 
   render() {
