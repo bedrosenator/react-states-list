@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setZipCode } from './actions';
 
 class LocationItem extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class LocationItem extends Component {
   }
   
   handleSelection (zipCode) {
-    this.props.dispatch({ type: 'SET_ZIP_CODE', payload: zipCode });
+    this.props.dispatch(setZipCode(zipCode) );
   };
   
   render() {

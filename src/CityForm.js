@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchLocation } from './actions/index';
 import LocationsList from "./LocationsList";
+import { setZipCode } from './actions';
 
 class CityForm extends Component {
 
@@ -10,7 +11,7 @@ class CityForm extends Component {
   }
   
   setZipCode(event) {
-    this.props.dispatch({ type: 'SET_ZIP_CODE', payload: event.target.value  });
+    this.props.dispatch(setZipCode(event.target.value));
   }
   
   render() {
